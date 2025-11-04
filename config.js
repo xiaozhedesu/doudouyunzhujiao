@@ -12,11 +12,16 @@ const getInfoService = 'https://zjgsujiaoxue.applinzi.com/index.php/Api/User/get
  * 提交用户数据时使用的url
  */
 const registerService = 'https://zjgsujiaoxue.applinzi.com/index.php/Api/User/register_by_openid';
+/**
+ * 修改用户数据时使用的url
+ */
+const changeDataService = 'https://zjgsujiaoxue.applinzi.com/index.php/Api/User/updateInfo';
 const appid = "wx579d5d156e58825d";
 
 module.exports = {
     sessionService,
     getInfoService,
     registerService,
+    changeDataService,
     appid
 }

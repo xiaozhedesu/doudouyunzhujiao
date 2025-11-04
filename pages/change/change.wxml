@@ -1,0 +1,22 @@
+<view class="page">
+    <view class="weui-form">
+        <!-- 返回按钮 -->
+        <text bindtap="goBack" class="icon-back">‹ 返回</text>
+        <!-- 标题 -->
+        <view class="weui-form__text-area">
+            <text class="weui-form__title">{{title}}</text>
+        </view>
+
+        <!-- 输入框 -->
+        <view class="weui-cell weui-cell_input">
+            <input class="weui-input" value="{{inputValue}}" placeholder="{{oldValue}}" focus="{{true}}" bindinput="onInput" />
+        </view>
+
+        <view>{{message}}</view>
+
+        <!-- 保存按钮 -->
+        <view class="weui-btn-area">
+            <button type="primary" loading="{{loading}}" bindtap="save">保存</button>
+        </view>
+    </view>
+</view>

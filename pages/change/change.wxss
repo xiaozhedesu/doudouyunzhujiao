@@ -1,0 +1,24 @@
+/* pages/change/change.wxss */
+
+.bar {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    background: #fff
+}
+
+.icon-back {
+    color: #576b95;
+    font-size: 32rpx;
+    margin-right: auto
+}
+
+.page {
+    padding: 24rpx
+}
+
+.weui-input {
+    border: 1px solid #e5e5e5;
+    padding: 20rpx;
+    border-radius: 8rpx
+}

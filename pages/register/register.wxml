@@ -5,17 +5,6 @@
             <text class="weui-form__title">注册</text>
         </view>
 
-        <!-- 
-        <view class="icon">
-            <image src="{{avatarUrl || defaultAvatarUrl}}" mode="aspectFill" class="avatar" />
-            <button id="avetorUrl" open-type="chooseAvatar" bind:chooseavatar="setAvatar">修改头像</button>
-        </view>
-        <view class="inputArea nickname">
-            <text>昵称：</text>
-            <input type="text" class="fill" placeholder="请输入昵称" value="{{nickname}}" bindinput="onNicknameInput" />
-        </view>
-     -->
-
         <!-- 学号 -->
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd"><label class="weui-label">学号</label></view>

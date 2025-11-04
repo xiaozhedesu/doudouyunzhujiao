@@ -26,17 +26,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        const { getUserData } = require("../../utils/util")
-        try {
-            const userInfo = wx.getStorageSync('userInfo');
-            // 从后端获取数据，保证userInfo存在
-            if (!userInfo)
-                getUserData(wx.getStorageSync('jiaoxue_OPENID'));
-
-            this.setData({ userInfo })
-        } catch (e) {
-            console.error("读取失败：", e)
-        }
+        this.getUserData()
     },
 
     /**
@@ -50,7 +40,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserData()
     },
 
     /**

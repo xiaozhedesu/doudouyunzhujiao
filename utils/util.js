@@ -119,15 +119,15 @@ const fetchUserData = async function (openid) {
         // 将data保存到本地
         const getData = (result) => {
             const data = result.data.data;
-                wx.setStorageSync('userInfo', data);  
-                console.log("用户在后端的信息：", data)
-                resolve(data)
+            wx.setStorageSync('userInfo', data);
+            console.log("用户在后端的信息：", data)
+            resolve(data)
         }
         // 发送请求、获取data
         wx.request({
             url: getInfoService,
             method: "GET",
-            data: {openid},
+            data: { openid },
             success: getData,
             fail: reject
         })
@@ -150,6 +150,28 @@ const showPleaseRegisterAlert = function () {
     })
 }
 
+/**
+ * 更改用户在后台的数据
+ * @param field 要修改的字段名
+ * @param value 要修改的值
+ */
+async function changeUserData(field, value) {
+    const { changeDataService } = require("../config")
+    console.log(field,value)
+    return new Promise((resolve, reject) => {
+        wx.request({
+            url: changeDataService,
+            data: {
+                openid: wx.getStorageInfo("openid_JIAOXUE"),
+                change: field,
+                value: value
+            },
+            success: resolve,
+            fail: reject
+        })
+    })
+}
+
 module.exports = {
     // 功能函数
     formatTime,
@@ -160,5 +182,6 @@ module.exports = {
     doLogin,
     fetchSessionData,
     fetchUserData,
-    showPleaseRegisterAlert
+    showPleaseRegisterAlert,
+    changeUserData
 }

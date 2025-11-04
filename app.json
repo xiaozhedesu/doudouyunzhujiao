@@ -4,7 +4,8 @@
     "pages/my/my",
     "pages/register/register",
     "pages/userLogin/userLogin",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/change/change"
   ],
   "tabBar": {
     "list": [

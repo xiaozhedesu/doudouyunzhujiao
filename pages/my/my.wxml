@@ -5,77 +5,57 @@
             <text class="weui-form__title">我的信息</text>
         </view>
 
-        <!-- 头像 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">头像</label>
+        <!-- 头像（可点击） -->
+        <navigator url="/pages/change/change?field=head_img&title=头像&value={{userInfo.head_img}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd"><label class="weui-label">头像</label></view>
+            <view class="weui-cell__bd" style="text-align:right">
+                <image src="{{userInfo.head_img}}" mode="aspectFill" style="border-radius:50%;height:50px;width:50px;" />
             </view>
-            <view class="weui-cell__bd">
-                <image src="{{userInfo.head_img}}" 
-                mode="aspectFill" 
-                class="weui-icon" 
-                style="border-radius: 50%; height: 50px; width: 50px;" />
-            </view>
-        </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
 
         <!-- 学号 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">学号</label>
-            </view>
-            <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.id}}</text>
-            </view>
+        <view class="weui-cell">
+            <view class="weui-cell__hd"><label class="weui-label">学号</label></view>
+            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.id}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </view>
 
-        <!-- 入学年份 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">入学年份</label>
-            </view>
-            <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.enter_year}}</text>
-            </view>
-        </view>
+        <!-- 入学年份（可点击） -->
+        <navigator url="/pages/change/change?field=enter_year&title=入学年份&value={{userInfo.enter_year}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd"><label class="weui-label">入学年份</label></view>
+            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.enter_year}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
 
-        <!-- 班级 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">学校</label>
-            </view>
-            <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.school}}</text>
-            </view>
-        </view>
+        <!-- 学校（可点击） -->
+        <navigator url="/pages/change/change?field=school&title=学校&value={{userInfo.school}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd"><label class="weui-label">学校</label></view>
+            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.school}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
 
-        <!-- 姓名 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">姓名</label>
-            </view>
-            <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.name}}</text>
-            </view>
-        </view>
+        <!-- 姓名（可点击） -->
+        <navigator url="/pages/change/change?field=name&title=姓名&value={{userInfo.name}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd"><label class="weui-label">姓名</label></view>
+            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.name}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
 
-        <!-- 性别 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">性别</label>
-            </view>
+        <!-- 性别（可点击） -->
+        <navigator url="/pages/change/change?field=sex&title=性别&value={{userInfo.sex}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd"><label class="weui-label">性别</label></view>
             <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.sex === "0" ? "男" : "女"}}</text>
+                <text class="weui-input weui-input_disabled">{{userInfo.sex === "1" ? "男" : userInfo.sex === "2" ? "女" : "保密"}}</text>
             </view>
-        </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
 
-        <!-- 电话 -->
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <label class="weui-label">电话</label>
-            </view>
-            <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.tel}}</text>
-            </view>
-        </view>
+        <!-- 电话（可点击） -->
+        <navigator url="/pages/change/change?field=tel&title=电话&value={{userInfo.tel}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd"><label class="weui-label">电话</label></view>
+            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.tel}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
     </view>
 </scroll-view>
