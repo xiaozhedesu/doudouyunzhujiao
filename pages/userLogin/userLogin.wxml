@@ -1,0 +1,11 @@
+<!--pages/userLogin/userLogin.wxml-->
+<view class="weui-form__text-area" style="margin: 60px">
+    <text class="weui-form__title">用户授权登录页</text>
+</view>
+
+
+<view class="weui-btn-area">
+  <button class="weui-btn weui-btn_primary" bindtap="onGetUserInfo">
+    点击授权登录
+  </button>
+</view>

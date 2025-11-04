@@ -1,0 +1,64 @@
+<!--pages/register/register.wxml-->
+<scroll-view class="page" scroll-y enable-flex>
+    <view class="weui-form">
+        <view class="weui-form__text-area" style="margin: 10px">
+            <text class="weui-form__title">注册</text>
+        </view>
+
+        <!-- 
+        <view class="icon">
+            <image src="{{avatarUrl || defaultAvatarUrl}}" mode="aspectFill" class="avatar" />
+            <button id="avetorUrl" open-type="chooseAvatar" bind:chooseavatar="setAvatar">修改头像</button>
+        </view>
+        <view class="inputArea nickname">
+            <text>昵称：</text>
+            <input type="text" class="fill" placeholder="请输入昵称" value="{{nickname}}" bindinput="onNicknameInput" />
+        </view>
+     -->
+
+        <!-- 学号 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd"><label class="weui-label">学号</label></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入学号" value="{{id}}" bindinput="onIdInput" />
+            </view>
+        </view>
+
+        <!-- 入学年份 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd"><label class="weui-label">入学年份</label></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入入学年份" value="{{changeYear}}" bindinput="onChangeYearInput" />
+            </view>
+        </view>
+
+        <!-- 学校 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd"><label class="weui-label">学校</label></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入学校" value="{{studentClass}}" bindinput="onSchoolInput" />
+            </view>
+        </view>
+
+        <!-- 姓名 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd"><label class="weui-label">姓名</label></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入姓名" value="{{name}}" bindinput="onNameInput" />
+            </view>
+        </view>
+
+        <!-- 电话 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd"><label class="weui-label">电话</label></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入电话" value="{{telephone}}" bindinput="onTelephoneInput" />
+            </view>
+        </view>
+
+        <!-- 提交按钮 -->
+        <view class="weui-btn-area">
+            <button id="submit" class="weui-btn weui-btn_primary" bindtap="submit" form-type="submit">提交注册</button>
+        </view>
+    </view>
+</scroll-view>

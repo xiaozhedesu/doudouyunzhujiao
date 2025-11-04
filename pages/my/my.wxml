@@ -1,0 +1,81 @@
+<!-- pages/profile/profile.wxml -->
+<scroll-view class="page" scroll-y enable-flex>
+    <view class="weui-form">
+        <view class="weui-form__text-area" style="margin: 10px">
+            <text class="weui-form__title">我的信息</text>
+        </view>
+
+        <!-- 头像 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">头像</label>
+            </view>
+            <view class="weui-cell__bd">
+                <image src="{{userInfo.head_img}}" 
+                mode="aspectFill" 
+                class="weui-icon" 
+                style="border-radius: 50%; height: 50px; width: 50px;" />
+            </view>
+        </view>
+
+        <!-- 学号 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">学号</label>
+            </view>
+            <view class="weui-cell__bd">
+                <text class="weui-input weui-input_disabled">{{userInfo.id}}</text>
+            </view>
+        </view>
+
+        <!-- 入学年份 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">入学年份</label>
+            </view>
+            <view class="weui-cell__bd">
+                <text class="weui-input weui-input_disabled">{{userInfo.enter_year}}</text>
+            </view>
+        </view>
+
+        <!-- 班级 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">学校</label>
+            </view>
+            <view class="weui-cell__bd">
+                <text class="weui-input weui-input_disabled">{{userInfo.school}}</text>
+            </view>
+        </view>
+
+        <!-- 姓名 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">姓名</label>
+            </view>
+            <view class="weui-cell__bd">
+                <text class="weui-input weui-input_disabled">{{userInfo.name}}</text>
+            </view>
+        </view>
+
+        <!-- 性别 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">性别</label>
+            </view>
+            <view class="weui-cell__bd">
+                <text class="weui-input weui-input_disabled">{{userInfo.sex === "0" ? "男" : "女"}}</text>
+            </view>
+        </view>
+
+        <!-- 电话 -->
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <label class="weui-label">电话</label>
+            </view>
+            <view class="weui-cell__bd">
+                <text class="weui-input weui-input_disabled">{{userInfo.tel}}</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>

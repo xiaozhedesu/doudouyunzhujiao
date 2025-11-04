@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<scroll-view class="page" scroll-y enable-flex>
+    <view class="weui-form__text-area" style="margin: 10px">
+        <br />
+        <text class="weui-form__title">主页</text>
+    </view>
+    <text>欢迎来到主页</text>
+</scroll-view>
