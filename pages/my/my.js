@@ -5,10 +5,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        sexShow: '保密',
+        userInfo: {
+            enter_year: '', // 入学年份
+            id: '',         // 学号
+            school: '',     // 学校
+            name: '',       // 姓名
+            sex: '0',        // 1 男 2 女 0 保密
+            tel: ''         // 电话
+        }
     },
 
-    getUserData: async function() {
+    getUserData: async function () {
         const { fetchUserData } = require("../../utils/util")
         try {
             const userInfo = wx.getStorageSync('userInfo');
@@ -17,9 +25,16 @@ Page({
                 await fetchUserData(wx.getStorageSync('jiaoxue_OPENID'));
 
             this.setData({ userInfo })
+            this.setSexShow(this.data.userInfo.sex)     // 手动刷新性别显示
         } catch (e) {
             console.error("读取失败：", e)
         }
+    },
+
+    setSexShow(value) { this.setData({ sexShow: value === '1' ? '男' : value === '2' ? '女' : '保密' }); },
+
+    observers: {
+        sex: function (value) { this.setSexShow(value) }
     },
 
     /**

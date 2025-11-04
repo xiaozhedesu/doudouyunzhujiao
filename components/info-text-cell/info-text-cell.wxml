@@ -1,0 +1,21 @@
+<!--components/info-text-cell/info-text-cell.wxml-->
+<!-- 可导航分支 -->
+<navigator wx:if="{{canNavigate}}"
+  url="{{url}}"
+  hover-class="weui-cell_active"
+  class="weui-cell weui-cell_access">
+  <view class="weui-cell__hd"><label class="weui-label">{{title}}</label></view>
+  <view class="weui-cell__bd">
+    <text class="weui-input weui-input_disabled">{{displayValue || value}}</text>
+  </view>
+  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<!-- 纯展示分支 -->
+<view wx:else
+  class="weui-cell">
+  <view class="weui-cell__hd"><label class="weui-label">{{title}}</label></view>
+  <view class="weui-cell__bd">
+    <text class="weui-input weui-input_disabled">{{displayValue || value}}</text>
+  </view>
+</view>

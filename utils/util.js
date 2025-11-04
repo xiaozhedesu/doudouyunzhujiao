@@ -157,7 +157,7 @@ const showPleaseRegisterAlert = function () {
  */
 async function changeUserData(field, value) {
     const { changeDataService } = require("../config")
-    console.log(field,value)
+    console.log(field, value)
     return new Promise((resolve, reject) => {
         wx.request({
             url: changeDataService,

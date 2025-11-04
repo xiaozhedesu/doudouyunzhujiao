@@ -1,4 +1,4 @@
-/* ---------- 1. 变量区 ---------- */
+/* ---------- 变量区 ---------- */
 page{
     --primary: #07C160;        /* 微信绿，可改 #0052D9 等 */
     --text: #181818;           /* 主文字 */
@@ -10,59 +10,6 @@ page{
     color: var(--text);
     background: var(--bg);
   }
-  
-  /* ---------- 2. 按钮 ---------- */
-  /* .btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24rpx 40rpx;
-    border-radius: var(--radius);
-    background: var(--primary);
-    color: #fff;
-    font-size: 30rpx;
-    box-shadow: 0 4rpx 12rpx -4rpx var(--primary);
-  }
-  .btn.mini{
-    padding: 16rpx 24rpx;
-    font-size: 26rpx;
-  }
-  .btn.plain{
-    background: transparent;
-    color: var(--primary);
-    box-shadow: none;
-    border: 2rpx solid var(--primary);
-  } */
-  
-  /* ---------- 3. 卡片 ---------- */
-  /* .card{
-    margin: 20rpx;
-    padding: 32rpx;
-    background: #fff;
-    border-radius: var(--radius);
-    box-shadow: 0 4rpx 20rpx 0 rgba(0,0,0,0.04);
-  } */
-  
-  /* ---------- 4. 列表单元 ---------- */
-  /* .cell{
-    display: flex;
-    align-items: center;
-    padding: 28rpx 20rpx;
-    background: #fff;
-    border-bottom: 2rpx solid var(--line);
-  }
-  .cell:last-child{border-bottom: none;}
-   */
-  /* ---------- 5. 输入框 ---------- */
-  /* .input{
-    width: 100%;
-    padding: 24rpx 20rpx;
-    background: #fff;
-    border: 2rpx solid var(--line);
-    border-radius: var(--radius);
-    font-size: 30rpx;
-  }
-  .input:focus{border-color: var(--primary);} */
 
   /* WeUI */
   @import '/style/weui.wxss'

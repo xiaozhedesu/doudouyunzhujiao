@@ -1,0 +1,3 @@
+/* components/info-text-cell/info-text-cell.wxss */
+  /* WeUI */
+  @import '../../style/weui.wxss'

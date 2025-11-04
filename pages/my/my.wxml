@@ -1,10 +1,10 @@
 <!-- pages/profile/profile.wxml -->
 <scroll-view class="page" scroll-y enable-flex>
     <view class="weui-form">
+        <!-- 标题 -->
         <view class="weui-form__text-area" style="margin: 10px">
             <text class="weui-form__title">我的信息</text>
         </view>
-
         <!-- 头像（可点击） -->
         <navigator url="/pages/change/change?field=head_img&title=头像&value={{userInfo.head_img}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
             <view class="weui-cell__hd"><label class="weui-label">头像</label></view>
@@ -13,49 +13,17 @@
             </view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-
         <!-- 学号 -->
-        <view class="weui-cell">
-            <view class="weui-cell__hd"><label class="weui-label">学号</label></view>
-            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.id}}</text></view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </view>
-
-        <!-- 入学年份（可点击） -->
-        <navigator url="/pages/change/change?field=enter_year&title=入学年份&value={{userInfo.enter_year}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
-            <view class="weui-cell__hd"><label class="weui-label">入学年份</label></view>
-            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.enter_year}}</text></view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
-
-        <!-- 学校（可点击） -->
-        <navigator url="/pages/change/change?field=school&title=学校&value={{userInfo.school}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
-            <view class="weui-cell__hd"><label class="weui-label">学校</label></view>
-            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.school}}</text></view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
-
-        <!-- 姓名（可点击） -->
-        <navigator url="/pages/change/change?field=name&title=姓名&value={{userInfo.name}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
-            <view class="weui-cell__hd"><label class="weui-label">姓名</label></view>
-            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.name}}</text></view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
-
-        <!-- 性别（可点击） -->
-        <navigator url="/pages/change/change?field=sex&title=性别&value={{userInfo.sex}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
-            <view class="weui-cell__hd"><label class="weui-label">性别</label></view>
-            <view class="weui-cell__bd">
-                <text class="weui-input weui-input_disabled">{{userInfo.sex === "1" ? "男" : userInfo.sex === "2" ? "女" : "保密"}}</text>
-            </view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
-
-        <!-- 电话（可点击） -->
-        <navigator url="/pages/change/change?field=tel&title=电话&value={{userInfo.tel}}" hover-class="weui-cell_active" class="weui-cell weui-cell_access">
-            <view class="weui-cell__hd"><label class="weui-label">电话</label></view>
-            <view class="weui-cell__bd"><text class="weui-input weui-input_disabled">{{userInfo.tel}}</text></view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
+        <info-text-cell field="id" title="学号" value="{{userInfo.id}}" canNavigate="{{false}}"/>
+        <!-- 入学年份 -->
+        <info-text-cell field="enter_year" title="入学年份" value="{{userInfo.enter_year}}" />
+        <!-- 学校 -->
+        <info-text-cell field="school" title="学校" value="{{userInfo.school}}" />
+        <!-- 姓名 -->
+        <info-text-cell field="name" title="姓名" value="{{userInfo.name}}" />
+        <!-- 性别 -->
+        <info-text-cell field="sex" title="性别" value="{{userInfo.sex}}" display-value="{{sexShow}}" />
+        <!-- 电话 -->
+        <info-text-cell field="tel" title="电话" value="{{userInfo.tel}}" />
     </view>
 </scroll-view>
