@@ -157,15 +157,11 @@ const showPleaseRegisterAlert = function () {
  */
 async function changeUserData(field, value) {
     const { changeDataService } = require("../config")
-    console.log(field, value)
+    const openid = wx.getStorageSync("jiaoxue_OPENID");
     return new Promise((resolve, reject) => {
         wx.request({
             url: changeDataService,
-            data: {
-                openid: wx.getStorageInfo("openid_JIAOXUE"),
-                change: field,
-                value: value
-            },
+            data: { openid, change: field, value },
             success: resolve,
             fail: reject
         })

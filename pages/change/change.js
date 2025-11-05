@@ -47,8 +47,8 @@ Page({
         const { changeUserData } = require("../../utils/util")
         changeUserData(this.data.field, value)
             .then(res => {
-                console.log(res.data)
                 if (!res.data.success) {
+                    console.log(res.data)
                     wx.showToast({
                         title: this.data.title + '修改失败',
                         icon: "error"
