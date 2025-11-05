@@ -2,24 +2,41 @@
 /**
  * 后端请求基地址
  */
-const serverApi = "https://zjgsujiaoxue.applinzi.com/index.php/Api"
+const serverApiBase = "https://zjgsujiaoxue.applinzi.com/index.php/Api"
 /**
- * 获取session的url
+ * 向后端请求的api
  */
-const sessionService = serverApi + "/Weixin/code_to_openidv2";
-/*: 'https://api.weixin.qq.com/sns/jscode2session'*/
-/**
- * 获取用户数据的url
- */
-const getInfoService = serverApi + '/User/getInfo';
-/**
- * 提交用户数据时使用的url
- */
-const registerService = serverApi + '/User/register_by_openid';
-/**
- * 修改用户数据时使用的url
- */
-const changeDataService = serverApi + '/User/updateInfo';
+const serverApis = {
+    /**
+     * 获取 session 的 url
+     * 之前使用：'https://api.weixin.qq.com/sns/jscode2session '
+     */
+    session: `${serverApiBase}/Weixin/code_to_openidv2`,
+    /**
+     * 获取用户数据的 url
+     */
+    getUserInfo: `${serverApiBase}/User/getInfo`,
+    /**
+     * 提交用户数据时使用的 url
+     */
+    register: `${serverApiBase}/User/register_by_openid`,
+    /**
+     * 修改用户数据时使用的 url
+     */
+    changeData: `${serverApiBase}/User/updateInfo`,
+    /**
+     * 加入课程
+     */
+    joinCourse: `${serverApiBase}/User/addCourse`,
+    /**
+     * 获取课程号
+     */
+    getCourseId: `${serverApiBase}/User/getAddedCourse`,
+    /**
+     * 获取课程信息
+     */
+    getCourseInfo: `${serverApiBase}/User/current`
+}
 /**
  * 获取的课程id
  * https://zjgsujiaoxue.applinzi.com/index.php/Api/User/createCourse?
@@ -30,30 +47,12 @@ const changeDataService = serverApi + '/User/updateInfo';
  */
 const courseId = 14645
 /**
- * 加入课程
-*/
-const joinCourseService = serverApi + '/User/addCourse'
-/**
- * 获取课程号
- */
-const getCourseIdService = serverApi + '/User/getAddedCourse'
-/**
- * 获取课程信息
- */
-const getCourseInfoService = serverApi + '/User/current'
-/**
  * 项目的appid，按理说不应该在js文件写死并上传来着
  */
 const appid = "wx579d5d156e58825d";
 
 module.exports = {
-    sessionService,
-    getInfoService,
-    registerService,
-    changeDataService,
+    serverApis,
     courseId,
-    joinCourseService,
-    getCourseIdService,
-    getCourseInfoService,
     appid
 }

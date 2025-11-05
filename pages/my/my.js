@@ -1,4 +1,7 @@
 // pages/my/my.js
+import { getOpenid } from '../../utils/util'
+import { fetchUserData } from '../../utils/request'
+
 Page({
 
     /**
@@ -17,12 +20,14 @@ Page({
     },
 
     getUserData: async function () {
-        const { fetchUserData } = require("../../utils/util")
         try {
             const userInfo = wx.getStorageSync('userInfo');
             // 从后端获取数据，保证userInfo存在
-            if (!userInfo)
-                await fetchUserData(wx.getStorageSync('jiaoxue_OPENID'));
+            if (!userInfo) {
+                const openid = getOpenid()
+                const data = await fetchUserData(openid).then(response => response.data.data)
+                wx.setStorageSync('userInfo', data);
+            }
 
             this.setData({ userInfo })
             this.setSexShow(this.data.userInfo.sex)     // 手动刷新性别显示

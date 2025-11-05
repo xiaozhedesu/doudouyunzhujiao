@@ -1,4 +1,6 @@
 // pages/register/register.js
+import { ensureNotNull, checkTelephoneCode } from "../../utils/util"
+import { register } from "../../utils/request"
 
 Page({
 
@@ -17,8 +19,6 @@ Page({
      * 提交时验证数据完整性
      */
     verify: function () {
-        const { ensureNotNull, checkTelephoneCode } = require("../../utils/util");
-
         return ensureNotNull(this.data.id.trim(), "学号") &&
             ensureNotNull(this.data.changeYear.trim(), "转入年份") &&
             ensureNotNull(this.data.school.trim(), "学校") &&
@@ -41,59 +41,19 @@ Page({
         // 验证数据
         if (!this.verify()) return;
 
-        // 取数据
-        const { id, changeYear, school,
-            name, telephone } = this.data;
-            
-        /**
-         * 提交数据至后端
-         */
-        const submitToServer = function () {
-            const { registerService } = require("../../config");
-            const app = getApp();
-            wx.request({
-                url: registerService,
-                data: {
-                    openid: wx.getStorageSync("jiaoxue_OPENID"),
-                    // 保存的全局变量数据在这使用
-                    globalData: JSON.stringify(app.globalData.userInfo),
-                    name,
-                    num: id,
-                    school,
-                    tel: telephone,
-                    enter_year: changeYear,
-                },
-                success: function (res) {
-                    console.log(res.data.success ? "成功" : "并非成功", "的输出：", res);
-
-                    if (res.data.is_register) {
-                        // 原login页面已经被我放到index里了
-                        console.log("注册成功，跳转到首页");
-                        wx.switchTab({
-                            url: '/pages/index/index',
-                        })
-                    }
-                },
-                fail: (err) => {
-                    console.log("失败: ", err);
-                }
-            })
-        }
-
         // 提交数据
-        submitToServer();
+        const app = getApp();
+        const userInfoStr = JSON.stringify(app.globalData.userInfo);
+        // 保存的全局变量数据传入函数被传进后端
+        const response = await register(this.data, userInfoStr)
+            .catch(err => console.log("失败: ", err))
+        console.log(response.data.success ? "成功" : "并非成功", "的输出：", response);
 
-        // 完成后跳转
-        wx.showModal({
-            title: "提交成功",
-            content: "即将跳转：我的页面",
-            showCancel: false,
-            complete: (res) => {
-                if (res.confirm) {
-                    wx.switchTab({ url: '/pages/my/my' })
-                }
-            }
-        });
+        if (response.data.is_register) {
+            // 原login页面已经被我放到index里了
+            console.log("注册成功，跳转到首页");
+            wx.switchTab({ url: '/pages/index/index', })
+        }
     },
 
     /**

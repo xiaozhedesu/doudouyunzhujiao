@@ -1,4 +1,6 @@
 // pages/change/change.js
+import { changeUserData } from '../../utils/request'
+
 Page({
 
     /**
@@ -44,24 +46,21 @@ Page({
         }
 
         // 修改
-        const { changeUserData } = require("../../utils/util")
-        changeUserData(this.data.field, value)
-            .then(res => {
-                if (!res.data.success) {
-                    console.log(res.data)
-                    wx.showToast({
-                        title: this.data.title + '修改失败',
-                        icon: "error"
-                    })
-                    // 在这里使用navigateBack会导致用户连错误弹窗都看不到就直接回到上一页，故删除
-                    return
-                }
-
-                console.log("change " + this.data.field + ": " + userInfo[this.data.field] + "->" + value)
-                userInfo[this.data.field] = value
-                wx.setStorageSync('userInfo', userInfo)
-                wx.navigateBack()
+        const response = await changeUserData(this.data.field, value)
+        if (!response.data.success) {
+            console.log(response.data)
+            wx.showToast({
+                title: this.data.title + '修改失败',
+                icon: "error"
             })
+            // 在这里使用navigateBack会导致用户连错误弹窗都看不到就直接回到上一页，故删除
+            return
+        }
+
+        console.log("change " + this.data.field + ": " + userInfo[this.data.field] + "->" + value)
+        userInfo[this.data.field] = value
+        wx.setStorageSync('userInfo', userInfo)
+        wx.navigateBack()
     },
 
     /**

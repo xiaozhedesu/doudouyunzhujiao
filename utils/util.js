@@ -64,80 +64,14 @@ export async function tmpPathToBase64(tmpPath) {
     });
 }
 
-/**
- * 登录
- */
-const doLogin = async function () {
-    return new Promise((resolve, reject) => {
-        wx.login({
-            success: res => {
-                if (res.code)
-                    resolve(res.code);
-                else
-                    reject(new Error('wx.login 未返回 code'))
-            },
-        })
-    })
-}
-
-/**
- * 登录后调用，根据code从后端拿session数据
- * @param {*} code 
- */
-const fetchSessionData = async function (code) {
-    const { sessionService, appid } = require("../config");
-    return new Promise((resolve, reject) => {
-        // 将openid保存到本地
-        const getOpenid = res => {
-            console.log("openid请求成功！\n", res.data)
-
-            const openid = res.data.openid;
-            wx.setStorageSync('jiaoxue_OPENID', openid)
-            resolve(openid)
-        }
-        // 发送请求，获取openid
-        wx.request({
-            url: sessionService,
-            method: "GET",
-            data: {
-                code,
-                'from': appid
-            },
-            success: getOpenid,
-            fail: reject
-        })
-    })
-}
-
-/**
- * 获取session数据后调用，根据openid从后端获取用户数据，并将数据保存至本地
- * @param {*} openid 
- */
-const fetchUserData = async function (openid) {
-    const { getInfoService } = require("../config")
-    return new Promise((resolve, reject) => {
-        // 将data保存到本地
-        const getData = (result) => {
-            const data = result.data.data;
-            wx.setStorageSync('userInfo', data);
-            console.log("用户在后端的信息：", data)
-            resolve(data)
-        }
-        // 发送请求、获取data
-        wx.request({
-            url: getInfoService,
-            method: "GET",
-            data: { openid },
-            success: getData,
-            fail: reject
-        })
-    })
-}
+// 这个项目中各种地方都可能用到这两个操作，为了避免拼写错误，封装get/set方法
+function getOpenid() { return wx.getStorageSync("jiaoxue_OPENID"); }
+function setOpenid(openid) { wx.setStorageSync("jiaoxue_OPENID", openid); }
 
 /**
  * 请注册弹窗
  */
-const showPleaseRegisterAlert = function () {
+export function showPleaseRegisterAlert() {
     wx.showModal({
         title: '提示',
         content: '请先注册',
@@ -150,86 +84,13 @@ const showPleaseRegisterAlert = function () {
     })
 }
 
-/**
- * 更改用户在后台的数据
- * @param field 要修改的字段名
- * @param value 要修改的值
- */
-async function changeUserData(field, value) {
-    const { changeDataService } = require("../config")
-    const openid = wx.getStorageSync("jiaoxue_OPENID");
-    return new Promise((resolve, reject) => {
-        wx.request({
-            url: changeDataService,
-            data: { openid, change: field, value },
-            success: resolve,
-            fail: reject
-        })
-    })
-}
-
-/**
- * 加入课程请求
- */
-async function joinCourse() {
-    const { joinCourseService, courseId } = require("../config")
-    const openid = wx.getStorageSync("jiaoxue_OPENID");
-    return new Promise((resolve, reject) => {
-        wx.request({
-            url: joinCourseService,
-            data: { openid, courseId },
-            success: resolve,
-            fail: reject
-        })
-    })
-}
-
-/**
- * 获取课程id请求
- */
-async function getCourseId() {
-    const { getCourseIdService } = require("../config")
-    const openid = wx.getStorageSync("jiaoxue_OPENID");
-    return new Promise((resolve, reject) => {
-        wx.request({
-            url: getCourseIdService,
-            data: { openid },
-            success: resolve,
-            fail: reject
-        })
-    })
-}
-
-/**
- * 获取课程信息请求
- */
-async function getCourseInfo() {
-    const { getCourseInfoService, courseId } = require('../config');
-    const openid = wx.getStorageSync("jiaoxue_OPENID");
-    return new Promise((resolve, reject) => {
-        wx.request({
-            url: getCourseInfoService,
-            data: { current_course_id: courseId, openid },
-            success: resolve,
-            fail: reject
-        })
-    })
-}
-
+// 功能函数
 module.exports = {
-    // 功能函数
     formatTime,
     tmpPathToBase64,
     ensureNotNull,
     checkTelephoneCode,
-    // 登录函数
-    doLogin,
-    fetchSessionData,
-    fetchUserData,
     showPleaseRegisterAlert,
-    changeUserData,
-    // 课程函数
-    joinCourse,
-    getCourseId,
-    getCourseInfo
+    getOpenid,
+    setOpenid
 }

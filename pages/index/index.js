@@ -1,5 +1,5 @@
 // index.js
-import { getCourseInfo } from "../../utils/util"
+import { getCourseInfo } from "../../utils/request"
 Page({
 
     /**
