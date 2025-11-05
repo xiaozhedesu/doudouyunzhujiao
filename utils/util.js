@@ -168,6 +168,54 @@ async function changeUserData(field, value) {
     })
 }
 
+/**
+ * 加入课程请求
+ */
+async function joinCourse() {
+    const { joinCourseService, courseId } = require("../config")
+    const openid = wx.getStorageSync("jiaoxue_OPENID");
+    return new Promise((resolve, reject) => {
+        wx.request({
+            url: joinCourseService,
+            data: { openid, courseId },
+            success: resolve,
+            fail: reject
+        })
+    })
+}
+
+/**
+ * 获取课程id请求
+ */
+async function getCourseId() {
+    const { getCourseIdService } = require("../config")
+    const openid = wx.getStorageSync("jiaoxue_OPENID");
+    return new Promise((resolve, reject) => {
+        wx.request({
+            url: getCourseIdService,
+            data: { openid },
+            success: resolve,
+            fail: reject
+        })
+    })
+}
+
+/**
+ * 获取课程信息请求
+ */
+async function getCourseInfo() {
+    const { getCourseInfoService, courseId } = require('../config');
+    const openid = wx.getStorageSync("jiaoxue_OPENID");
+    return new Promise((resolve, reject) => {
+        wx.request({
+            url: getCourseInfoService,
+            data: { current_course_id: courseId, openid },
+            success: resolve,
+            fail: reject
+        })
+    })
+}
+
 module.exports = {
     // 功能函数
     formatTime,
@@ -179,5 +227,9 @@ module.exports = {
     fetchSessionData,
     fetchUserData,
     showPleaseRegisterAlert,
-    changeUserData
+    changeUserData,
+    // 课程函数
+    joinCourse,
+    getCourseId,
+    getCourseInfo
 }

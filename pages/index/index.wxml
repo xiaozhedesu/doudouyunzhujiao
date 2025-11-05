@@ -1,8 +1,20 @@
 <!--index.wxml-->
 <scroll-view class="page" scroll-y enable-flex>
-    <view class="weui-form__text-area" style="margin: 10px">
+    <view class="weui-form__text-area" style="margin-top: 60px">
         <br />
         <text class="weui-form__title">主页</text>
     </view>
-    <text>欢迎来到主页</text>
+    <view class="weui-cell weui-cells_after_title">
+        <view class="weui-cell weui-cell_example" aria-role="option">
+        <view class="weui-cell__hd">
+            <image class="img_style" src="/imgs/kanna.png" />
+        </view>
+        <view class="weui-cell__bd">
+            <view style='font-size:20px'>{{current_course['name']}}</view>
+            <view style='font-size:13px;color:#888888'>创建者：{{current_course['teacher']['name']}}</view>
+            <view style='font-size:13px;color:#888888'>加入人数：{{current_course['count']}}</view>
+            <view style='font-size:13px;color:#888888'>课程号：{{current_course['id']}}</view>
+        </view>
+    </view>
+    </view>
 </scroll-view>

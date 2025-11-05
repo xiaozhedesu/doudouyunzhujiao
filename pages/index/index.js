@@ -1,17 +1,24 @@
 // index.js
+import { getCourseInfo } from "../../utils/util"
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        current_course: {}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        // 获取课程信息，如果有别的逻辑再提取成函数
+        getCourseInfo().then(response => {
+            const current_course = response.data.data
+            console.log("课程信息：", current_course)
+            this.setData({ current_course })
+        })
 
     },
 
