@@ -1,4 +1,5 @@
 // pages/change/change.js
+import { ensureNotNull, checkTelephoneCode } from '../../utils/util'
 import { changeUserData } from '../../utils/request'
 
 Page({
@@ -21,14 +22,16 @@ Page({
     /**
      * 保存按钮，向后端提交修改的数据
      */
-    save: function () {
+    save: async function () {
         let value = this.data.input.trim();
 
         // 判空
-        if (!value) {
-            wx.showToast({ title: this.data.title + '不能为空', icon: 'error' });
+        if (!ensureNotNull(value, this.data.title))
             return;
-        }
+
+        // 电话字段的判断
+        if (this.data.field === "tel" && !checkTelephoneCode(value))
+            return;
 
         // 单独处理性别值
         if (this.data.field === "sex") {
@@ -74,7 +77,10 @@ Page({
             oldValue: options.value
         })
         if (this.data.field === "sex") {
-            this.setData({ message: "> 请输入'男'或'女'。" })
+            this.setData({
+                showValue: this.data.oldValue === '1' ? '男' : this.data.oldValue === '2' ? '女' : '保密',
+                message: "> 请输入'男'或'女'。"
+            })
         }
     },
 

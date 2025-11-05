@@ -9,7 +9,7 @@
 
         <!-- 输入框 -->
         <view class="weui-cell weui-cell_input">
-            <input class="weui-input" value="{{inputValue}}" placeholder="{{oldValue}}" focus="{{true}}" bindinput="onInput" />
+            <input class="weui-input" value="{{inputValue}}" placeholder="{{showValue || oldValue}}" focus="{{true}}" bindinput="onInput" />
         </view>
 
         <view>{{message}}</view>

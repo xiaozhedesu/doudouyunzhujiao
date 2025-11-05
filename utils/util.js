@@ -86,11 +86,14 @@ export function showPleaseRegisterAlert() {
 
 // 功能函数
 module.exports = {
-    formatTime,
-    tmpPathToBase64,
+    // getter/setter
+    getOpenid,
+    setOpenid,
+    // check functions
     ensureNotNull,
     checkTelephoneCode,
-    showPleaseRegisterAlert,
-    getOpenid,
-    setOpenid
+    // tool
+    formatTime,
+    tmpPathToBase64,
+    showPleaseRegisterAlert
 }
