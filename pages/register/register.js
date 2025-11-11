@@ -37,7 +37,7 @@ Page({
     /**
      * 提交函数
      */
-    submit() {
+    async submit() {
         // 验证数据
         if (!this.verify()) return;
 
