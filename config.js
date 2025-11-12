@@ -35,7 +35,11 @@ const serverApis = {
     /**
      * 获取课程信息
      */
-    getCourseInfo: `${serverApiBase}/User/current`
+    getCourseInfo: `${serverApiBase}/User/current`,
+    /**
+     * 获取做题数量
+     */
+    quesCount: `${serverApiBase}/User/getDoneQuesCount`
 }
 /**
  * 获取的课程id
@@ -46,6 +50,33 @@ const serverApis = {
  * &creater=xiaozhedesu
  */
 const courseId = 14645
+const courseApis = {
+    /**
+     * 章节
+     */
+    chapter: `Gateway/route?method=pingshifen.question.chapter&course_id=${courseId}`,
+    /**
+     * 特殊题库
+     */
+    special:  `Gateway/route?method=pingshifen.question.special&course_id=${courseId}`,
+    /**
+     * 收藏题库
+     */
+    collect: `Gateway/route?method=pingshifen.question.collect&course_id=${courseId}`,
+    /**
+     * 提交答案
+     */
+    submit: `Gateway/route?method=pingshifen.question.submit&course_id=${courseId}`,
+    /**
+     * 题目号链接
+     */
+    idItems: `Gateway/route?method=pingshifen.question.get_id_items&course_id=${courseId}`,
+    /**
+     * 题目详情
+     */
+    info: `Gateway/route?method=pingshifen.question.get_info&course_id=${courseId}`
+}
+
 /**
  * 项目的appid，按理说不应该在js文件写死并上传来着
  */
@@ -53,6 +84,8 @@ const appid = "wx579d5d156e58825d";
 
 module.exports = {
     serverApis,
+    courseApis,
+    serverApiBase,
     courseId,
     appid
 }

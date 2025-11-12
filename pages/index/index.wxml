@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <scroll-view class="page" scroll-y enable-flex>
-    <view class="weui-form__text-area" style="margin-top: 60px">
+    <view class="weui-form__text-area">
         <br />
         <text class="weui-form__title">主页</text>
     </view>
@@ -18,5 +18,36 @@
         </view>
     </view>
 
-    <lesson-base />
+    <view name="index-exam">
+    <view class="index-exam-h1">
+        课程练习
+        <view class="index-exam-span">共114题</view>
+    </view>
+    <view class="index-exam-inlets row">
+        <view bindtap="tapInletsMk" data-urlParem='3' class="index-exam-inlets-mk col-hg-6">
+            <view>顺序练习</view>
+            <view class="small">做题数: {{que_count}}题</view>
+        </view>
+        <view bindtap="tapInletsSC" class="index-exam-inlets-sc col-hg-6" data-urlParem="8" data-collection="{{current_course.question['0'].collection}}">
+            <view>收藏</view>
+            <view>（{{current_course.question['0'].collection}}）</view>
+        </view>
+        <view bindtap="tapInletsCT" class="index-exam-inlets-ct col-hg-6" data-urlParem="8" data-answerError="{{current_course.question['0'].answerError}}">
+            <view>答错</view>
+            <view>（{{current_course.question['0'].answerError}}）</view>
+        </view>
+        <view class="row" style="clear: both;">
+            <navigator url="/pages/answer/answer_classify/classify?subject=8&type=zxlx"
+                class="index-exam-inlets-list col-hg-6">
+                <view class="icon-index-zx"></view>
+                <view class="text">专项练习</view>
+            </navigator>
+            <navigator url="/pages/answer/answer_chapter/chapter?subject=8&type=zjlx"
+                class="index-exam-inlets-list col-hg-6">
+                <view class="icon-index-zj"></view>
+                <view class="text">章节练习</view>
+            </navigator>
+        </view>
+    </view>
+</view>
 </scroll-view>

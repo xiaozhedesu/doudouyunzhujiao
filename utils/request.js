@@ -132,6 +132,22 @@ async function getCourseInfo() {
     })
 }
 
+/**
+ * 获取做题数量请求
+ */
+async function getQuesCount() {
+    const openid = getOpenid();
+    const courseId = config.courseId;
+    return new Promise((resolve, reject) => {
+        wx.request({
+            url: config.serverApis.quesCount,
+            data: { openid, courseId },
+            success: resolve,
+            fail: reject
+        })
+    })
+}
+
 module.exports = {
     // 登录函数
     doLogin,
@@ -144,5 +160,6 @@ module.exports = {
     // 课程函数
     joinCourse,
     getCourseId,
-    getCourseInfo
+    getCourseInfo,
+    getQuesCount
 }

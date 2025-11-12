@@ -5,7 +5,11 @@
     "pages/register/register",
     "pages/userLogin/userLogin",
     "pages/logs/logs",
-    "pages/change/change"
+    "pages/change/change",
+    "pages/answer/answer_chapter/chapter",
+    "pages/answer/answer_classify/classify",
+    "pages/answer/answer_common/movie-list",
+    "pages/answer/answer_info/info"
   ],
   "tabBar": {
     "list": [
