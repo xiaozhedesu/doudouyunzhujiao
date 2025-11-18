@@ -21,7 +21,7 @@ Page({
             isLayerShow: false,//默认弹窗
             layerAnimation: {},//弹窗动画
         },
-        storeUrl: courseApis.collectList,//收藏URL
+        storeUrl: courseApis.collect,//收藏URL
         answerUrl: courseApis.submit,//提交答案URL
         answers: {
             isShowRemove: false,//是否显示移除按钮

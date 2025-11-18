@@ -24,10 +24,10 @@
         <view class="index-exam-span">共114题</view>
     </view>
     <view class="index-exam-inlets row">
-        <view bindtap="tapInletsMk" data-urlParem='3' class="index-exam-inlets-mk col-hg-6">
+        <navigator url="/pages/answer/answer_info/info?subject=&type=sxlx" data-urlParem='3' class="index-exam-inlets-mk col-hg-6">
             <view>顺序练习</view>
             <view class="small">做题数: {{que_count}}题</view>
-        </view>
+        </navigator>
         <view bindtap="tapInletsSC" class="index-exam-inlets-sc col-hg-6" data-urlParem="8" data-collection="{{current_course.question['0'].collection}}">
             <view>收藏</view>
             <view>（{{current_course.question['0'].collection}}）</view>
