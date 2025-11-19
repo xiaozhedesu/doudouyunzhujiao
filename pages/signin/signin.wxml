@@ -1,0 +1,18 @@
+<!--pages/signin/signin.wxml-->
+<scroll-view class="page" scroll-y enable-flex>
+    <view class="weui-cells weui-cells_after-title">
+        <!-- 选择位置 -->
+        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="chooseLocation">
+            <view class="weui-cell__bd">选择位置</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">({{choosen.longitude}},{{choosen.latitude}})</view>
+        </view>
+        <!-- 获取位置 -->
+        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="getLocation">
+            <view class="weui-cell__bd">获取当前位置</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">({{got.longitude}},{{got.latitude}})</view>
+        </view>
+        <button class="weui-btn" type="primary" bind:tap="calculate"
+            disabled="{{!(choosenFlag && gotFlag)}}">测距</button>
+        <view class="motto">{{motto}}</view>
+    </view>
+</scroll-view>
