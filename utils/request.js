@@ -56,14 +56,12 @@ async function fetchUserData(openid) {
     })
 }
 
-async function register(data, globalData) {
+async function register(submitData, globalData) {
     // 取数据
-    // 这个函数跟原页面耦合度还是有点大，因为事先不知道后端的存在，导致跟后端字段名约束错位，实际工程不应该出现这种代码
-    const { num: id, enter_year: changeYear, school, name, tel: telephone } = data;
     return new Promise((resolve, reject) => {
         wx.request({
             url: config.serverApis.register,
-            data: { openid: getOpenid(), globalData, name, num, school, tel, enter_year },
+            data: { openid: getOpenid(), globalData, ...submitData },
             success: resolve,
             fail: reject
         })

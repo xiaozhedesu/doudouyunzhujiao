@@ -9,7 +9,7 @@
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd"><label class="weui-label">学号</label></view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="请输入学号" value="{{id}}" bindinput="onIdInput" />
+                <input class="weui-input" type="text" placeholder="请输入学号" value="{{num}}" bindinput="onNumInput" />
             </view>
         </view>
 
@@ -17,7 +17,7 @@
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd"><label class="weui-label">入学年份</label></view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="请输入入学年份" value="{{changeYear}}" bindinput="onChangeYearInput" />
+                <input class="weui-input" type="text" placeholder="请输入入学年份" value="{{enter_year}}" bindinput="onEnterYearInput" />
             </view>
         </view>
 
@@ -25,7 +25,7 @@
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd"><label class="weui-label">学校</label></view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="请输入学校" value="{{studentClass}}" bindinput="onSchoolInput" />
+                <input class="weui-input" type="text" placeholder="请输入学校" value="{{school}}" bindinput="onSchoolInput" />
             </view>
         </view>
 
@@ -41,7 +41,7 @@
         <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd"><label class="weui-label">电话</label></view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="请输入电话" value="{{telephone}}" bindinput="onTelephoneInput" />
+                <input class="weui-input" type="text" placeholder="请输入电话" value="{{tel}}" bindinput="onTelInput" />
             </view>
         </view>
 

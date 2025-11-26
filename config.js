@@ -1,8 +1,9 @@
 // config.js
 /**
  * 后端请求基地址
+ * 原来使用的书里提供的远端地址："https://zjgsujiaoxue.applinzi.com/index.php/Api"
  */
-const serverApiBase = "https://zjgsujiaoxue.applinzi.com/index.php/Api"
+const serverApiBase = "http://127.0.0.1/index.php/Api"
 /**
  * 向后端请求的api
  */
@@ -43,13 +44,13 @@ const serverApis = {
 }
 /**
  * 获取的课程id
- * https://zjgsujiaoxue.applinzi.com/index.php/Api/User/createCourse?
+ * http://127.0.0.1/index.php/Api/User/createCourse
  * ?appid=wx579d5d156e58825d
  * &courseName=大家一起来0721
  * &questionSet=1012
  * &creater=xiaozhedesu
  */
-const courseId = 14645
+const courseId = 10086
 const courseApis = {
     /**
      * 章节

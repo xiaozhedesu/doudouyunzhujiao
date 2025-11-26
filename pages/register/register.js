@@ -8,31 +8,31 @@ Page({
      * 页面的初始数据
      */
     data: {
-        id: "",
-        changeYear: "",
+        num: "",
+        enter_year: "",
         name: "",
         school: "",
-        telephone: "",
+        tel: "",
     },
 
     /**
      * 提交时验证数据完整性
      */
     verify: function () {
-        return ensureNotNull(this.data.id.trim(), "学号") &&
-            ensureNotNull(this.data.changeYear.trim(), "转入年份") &&
+        return ensureNotNull(this.data.num.trim(), "学号") &&
+            ensureNotNull(this.data.enter_year.trim(), "转入年份") &&
             ensureNotNull(this.data.school.trim(), "学校") &&
             ensureNotNull(this.data.name.trim(), "姓名") &&
-            ensureNotNull(this.data.telephone.trim(), "手机号") &&
-            checkTelephoneCode(this.data.telephone.trim());
+            ensureNotNull(this.data.tel.trim(), "手机号") &&
+            checkTelephoneCode(this.data.tel.trim());
     },
 
     // 输入框统一更新
-    onIdInput(e) { this.setData({ id: e.detail.value }); },
-    onChangeYearInput(e) { this.setData({ changeYear: e.detail.value }); },
+    onNumInput(e) { this.setData({ num: e.detail.value }); },
+    onEnterYearInput(e) { this.setData({ enter_year: e.detail.value }); },
     onSchoolInput(e) { this.setData({ school: e.detail.value }); },
     onNameInput(e) { this.setData({ name: e.detail.value }); },
-    onTelephoneInput(e) { this.setData({ telephone: e.detail.value }); },
+    onTelInput(e) { this.setData({ tel: e.detail.value }); },
 
     /**
      * 提交函数
@@ -80,7 +80,7 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide() {
+    onHnume() {
 
     },
 
